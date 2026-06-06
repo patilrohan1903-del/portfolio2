@@ -979,6 +979,34 @@ section{
     }
 }
 
+/* Mobile darken white cards and prevent edge overflow */
+@media (max-width: 900px) {
+    html, body { background: linear-gradient(180deg, #050714 0%, #07101d 100%) !important; }
+    .services .content .card,
+    .contact .content .row .card,
+    .contact-form,
+    .work .content .card{
+        background: rgba(255,255,255,0.03) !important;
+        color: #fff !important;
+        box-shadow: none !important;
+        border-radius: 10px;
+        border: 1px solid rgba(255,255,255,0.04);
+    }
+    .services .content .card .service-icon,
+    .contact .content .row .card .contact-icon,
+    .contact-form .input-box .send-btn{
+        color: #3a6cf4 !important;
+    }
+    /* Ensure cards don't overflow viewport */
+    .services .content .card,
+    .work .content .card,
+    .contact .content .row .card {
+        max-width: calc(100% - 32px) !important;
+        margin-left: auto !important;
+        margin-right: auto !important;
+    }
+}
+
 
 
 
