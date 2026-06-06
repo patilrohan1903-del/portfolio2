@@ -923,6 +923,42 @@ section{
     }
 }
 
+/* Emergency mobile override - force dark backgrounds and stop edge overflow */
+@media (max-width: 480px) {
+    html, body {
+        background: #07101d !important;
+        min-height: 100vh;
+        overflow-x: hidden !important;
+    }
+
+    /* Make any white cards dark and remove borders/shadows */
+    .services .content .card,
+    .contact .content .row .card,
+    .contact-form,
+    .work .content .card,
+    .about .content .col-left .img-card,
+    .role-card,
+    .main, section {
+        background: transparent !important;
+        background-color: transparent !important;
+        color: #fff !important;
+        box-shadow: none !important;
+        border: none !important;
+    }
+
+    /* Ensure images and cards don't exceed viewport */
+    img, .main-container, .about .content, .skills .content {
+        max-width: 100% !important;
+        box-sizing: border-box !important;
+    }
+
+    /* Hide any remaining pseudo-elements that sit outside containers */
+    *::before, *::after { box-sizing: border-box; }
+
+    /* Fix header/nav backgrounds so no white shows at the top-left */
+    header, header .brand, .navigation { background: transparent !important; }
+}
+
 @media (max-width: 600px) {
     header{
         padding: 12px 16px;
