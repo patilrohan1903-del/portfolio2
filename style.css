@@ -902,6 +902,9 @@ section{
     .role-list li {
         font-size: clamp(1.9rem, 5vw, 3rem);
     }
+    .role-list li::after {
+        display: none;
+    }
     .about .content .img-card {
         min-height: 380px;
     }
@@ -939,6 +942,9 @@ section{
     }
     .role-list li {
         font-size: 2rem;
+    }
+    .role-list li::after {
+        display: none;
     }
     .media-icons {
         gap: 12px;
