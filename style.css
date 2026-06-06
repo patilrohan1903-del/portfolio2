@@ -7,10 +7,11 @@
     box-sizing: border-box;
 }
 
-body{
+html, body{
     width: 100%;
-    height: auto;
+    min-height: 100%;
     overflow-x: hidden;
+    background: linear-gradient(180deg, #050714 0%, #07101d 100%);
 }
 
 header{
