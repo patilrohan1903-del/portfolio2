@@ -20,16 +20,17 @@ header{
     top: 0;
     left: 0;
     width: 100%;
-    padding: 15px 200px;
+    padding: 15px 50px;
     display: flex;
     justify-content: space-between;
     align-items: center;
     transition: 0.2s ease;
+    box-sizing: border-box;
 }
 
 header.sticky{
     background-color: #3a6cf4;
-    padding: 10px 200px;
+    padding: 10px 50px;
 }
 
 header .brand{
@@ -61,7 +62,7 @@ header .sticky .navigation a:hover{
 }
 
 section{
-    padding: 100px 200px;
+    padding: 100px 50px;
 }
 
 .main {
@@ -73,7 +74,7 @@ section{
     background: radial-gradient(circle at top left, rgba(58,108,244,0.2), transparent 24%),
                 radial-gradient(circle at bottom right, rgba(255,255,255,0.05), transparent 18%),
                 linear-gradient(180deg, #050714 0%, #07101d 100%);
-    padding: 0 5vw;
+    padding: 7.5rem 5vw 3.5rem;
     position: relative;
     overflow: hidden;
 }
@@ -110,13 +111,16 @@ section{
 }
 
 .eyebrow {
-    color: #6fb4ff;
+    display: inline-block;
+    color: #dbe8ff;
     letter-spacing: 0.35em;
     text-transform: uppercase;
-    font-size: 0.8rem;
+    font-size: 0.95rem;
+    margin-bottom: 1rem;
 }
 
 .main-left h1 {
+    margin-top: 0.2rem;
     font-size: clamp(3.3rem, 5vw, 5.6rem);
     line-height: 0.9;
     letter-spacing: -0.04em;
@@ -189,7 +193,7 @@ section{
     justify-content: flex-end;
     align-items: center;
     padding-left: 2.5rem;
-    border-left: 1px solid rgba(255,255,255,0.12);
+    border-left: none;
 }
 
 .role-card {
@@ -724,7 +728,6 @@ section{
 
 
 @media (max-width:1040px) {
-    
     header{
         padding: 12px 20px;
     }
@@ -733,17 +736,24 @@ section{
         padding: 10px 20px;
     }
 
+    header .brand{
+        max-width: calc(100% - 80px);
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+
     header .navigation{
         display: none;
     }
 
     .navigation.active{
-        z-index: 889;
+        z-index: 998;
         position: fixed;
         background-color: white;
         top: 0;
         right: 0;
-        width: 380px;
+        width: 100%;
         height: 100%;
         display: flex;
         justify-content: center;
@@ -751,6 +761,7 @@ section{
         flex-direction: column;
         box-shadow: 0 5px 25px rgba(1 1 1/ 15%);
         transition: 0.3s ease;
+        overflow: hidden;
     }
 
     header .navigation a{
@@ -768,17 +779,18 @@ section{
     }
 
     .menu-btn{
-        position: absolute;
+        position: relative;
         background-image: url(Image/menu.png);
         background-position: center;
         background-size: 30px;
         background-repeat: no-repeat;
         width: 40px;
         height: 40px;
-        right: 0;
-        margin: 0 20px;
         cursor: pointer;
         transition: 0.3s ease;
+        z-index: 1000;
+        border: none;
+        background-color: transparent;
     }
 
     .menu-btn.active{
@@ -799,8 +811,13 @@ section{
         font-size: 1.8em;
     }
 
+    .main-container {
+        grid-template-columns: 1fr;
+    }
+
     .about .content{
         flex-direction: column;
+        align-items: stretch;
     }
 
     .about .content .column{
@@ -812,27 +829,44 @@ section{
         margin-top: 40px;
     }
 
-    /* Skills */
-
     .skills .content{
         flex-direction: column;
+        align-items: stretch;
     }
 
-    .skills .content .column{
-        position: relative;
+    .skills .content .col-left,
+    .skills .content .col-right{
         width: 100%;
     }
 
     .skills .content .col-right{
         margin-top: 40px;
     }
+
+    .work .content{
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .work .content .card{
+        width: 100%;
+        max-width: 440px;
+    }
  
     .contact-form{
         padding: 35px 40px;
-      }
+    }
 }
 
 @media (max-width: 900px) {
+    section{
+        padding: 60px 18px;
+    }
+
+    header .brand{
+        font-size: 1.4rem;
+    }
+
     .main {
         padding: 60px 2vw 40px 2vw;
         gap: 30px;
@@ -868,9 +902,30 @@ section{
     .role-list li {
         font-size: clamp(1.9rem, 5vw, 3rem);
     }
+    .about .content .img-card {
+        min-height: 380px;
+    }
+    .work .content .card {
+        max-width: 100%;
+        width: 100%;
+    }
+    .contact .content .row .card {
+        width: 100%;
+        max-width: 340px;
+        margin: 12px;
+    }
+    .contact-form {
+        padding: 35px 30px;
+    }
 }
 
 @media (max-width: 600px) {
+    header{
+        padding: 12px 16px;
+    }
+    section{
+        padding: 30px 16px;
+    }
     .main {
         padding: 30px 1.5rem 20px 1.5rem;
         gap: 20px;
@@ -895,6 +950,25 @@ section{
     }
     .main-tagline {
         font-size: 0.95rem;
+    }
+    .section-title {
+        font-size: 1.6rem;
+    }
+    .about .content .img-card {
+        min-height: 280px;
+    }
+    .about .content .col-right {
+        margin-top: 28px;
+    }
+    .skills .content .col-right {
+        margin-top: 24px;
+    }
+    .contact-form {
+        width: 100%;
+        padding: 26px;
+    }
+    .footer {
+        padding: 1.25rem;
     }
 }
 
